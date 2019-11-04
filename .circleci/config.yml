@@ -2,7 +2,7 @@ version: 2.1
 executors:
   docker-publisher:
     environment:
-      IMAGE_NAME: openintegrationhub/snazzy-transformer-template
+      IMAGE_NAME: openintegrationhub/wice-adapter
     docker:
       - image: circleci/node:8-stretch
 jobs:
@@ -39,8 +39,6 @@ jobs:
           root: .
           paths:
             - ./image.tar
-      - run:
-          command: docker images
   # Publish the image on Dockerhub
   publish-latest:
     executor: docker-publisher
@@ -54,7 +52,7 @@ jobs:
       - run:
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-            docker push openintegrationhub/snazzy-transformer-template:latest
+            docker push openintegrationhub/wice-adapter:latest
 workflows:
   version: 2
   build-master:
