@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const seed = require('./seed/seed');
 const { createSession } = require('./../lib/utils/wice');
 const {
   organizations, persons, articles, configOptions, options,
@@ -11,7 +10,7 @@ const { checkForExistingArticle, createOrUpdateArticle } = require('./../lib/act
 describe('Test actions', () => {
   it('should create or update a person', async () => {
     const cookie = await createSession(configOptions);
-    const person = seed.persons[2];
+    const person = persons[2];
     const existningPersonRowid = await checkForExistingPerson(person, cookie, options);
     const newUser = await createOrUpdatePerson(existningPersonRowid, cookie, options, person);
     expect(cookie).to.have.lengthOf(32);
@@ -22,7 +21,7 @@ describe('Test actions', () => {
 
   it('should create or update an organization', async () => {
     const cookie = await createSession(configOptions);
-    const organization = seed.organizations[1];
+    const organization = organizations[1];
     const existningOrgnizationRowid = await checkForExistingOrganization(organization, cookie, options);
     const newOrganization = await createOrUpdateOrganization(existningOrgnizationRowid, cookie, options, organization);
     expect(cookie).to.have.lengthOf(32);
@@ -32,7 +31,7 @@ describe('Test actions', () => {
 
   it('should create or update an article', async () => {
     const cookie = await createSession(configOptions);
-    const article = seed.articles[0];
+    const article = articles[0];
     const existningArticleRowid = await checkForExistingArticle(article, cookie, options);
     const newArticle = await createOrUpdateArticle(existningArticleRowid, cookie, options, article);
     expect(cookie).to.have.lengthOf(32);

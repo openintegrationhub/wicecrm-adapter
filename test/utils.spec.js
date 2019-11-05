@@ -1,6 +1,8 @@
-const {expect} = require('chai');
-const {createSession} = require('./../lib/utils/wice');
-const {configOptions} = require('./seed/seed');
+/* eslint no-unused-expressions: "off" */
+
+const { expect } = require('chai');
+const { createSession } = require('./../lib/utils/wice');
+const { configOptions } = require('./seed/seed');
 
 describe('Test utils', async () => {
   it('should create a session', async () => {
