@@ -22,6 +22,9 @@ const organizations = [{
 },
 {
   body: {
+    meta: {
+      recordUid: '368125',
+    },
     name: 'Test GmbH',
     email: 'info@testgmbh.com',
   },
@@ -49,7 +52,7 @@ const persons = [{
 {
   body: {
     meta: {
-      uid: '123asd',
+      recordUid: '433610',
     },
     data: {
       oihUidEncrypted: '',
