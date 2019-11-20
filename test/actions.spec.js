@@ -16,7 +16,6 @@ describe('Test actions', () => {
     expect(cookie).to.have.lengthOf(32);
     expect(newUser).to.be.an('object');
     expect(newUser).to.have.property('rowid');
-    expect(newUser).to.have.property('for_rowid');
   });
 
   it('should create or update an organization', async () => {
