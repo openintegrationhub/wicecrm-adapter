@@ -1,6 +1,6 @@
 const configOptions = {
   client_name: 'sandbox',
-  username: 'shterion ',
+  username: 'wicecrmAdapterTest',
   password: 'd36adb53',
   path: 'https://oihwice.wice-net.de',
   apikey: 'fsuogsi9p1im1gpnhvapjdtx94z46qye',
