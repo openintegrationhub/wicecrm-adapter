@@ -11,7 +11,7 @@ describe('Test utils', async () => {
   });
 
   it('should not create cookie and session', async () => {
-    const session = await createSession({});
+    const session = await createSession({ url: 'https://oihwice.wice-net.de' });
     expect(session).to.be.undefined;
   });
 });
