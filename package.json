@@ -26,7 +26,7 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "@openintegrationhub/ferryman": "^1.0.11",
+    "@openintegrationhub/ferryman": "^1.1.0",
     "co": "4.6.0",
     "elasticio-node": "0.0.9",
     "q": "^1.5.1",
