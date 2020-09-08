@@ -99,6 +99,15 @@
       "metadata": {
         "out": "./lib/schemas/getArticles.out.json"
       }
+    },
+    "getPersonsAndOrganizationsPolling": {
+      "title": "Fetch new and updated persons and organizations",
+      "description": "Get WiceCRM persons/organizations which have recently been modified or created",
+      "type": "polling",
+      "main": "./lib/triggers/getPersonsAndOrganizationsPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getPersons.out.json"
+      }
     }
   },
   "actions": {
