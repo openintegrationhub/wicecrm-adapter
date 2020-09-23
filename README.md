@@ -20,22 +20,12 @@ The connector supports the following **actions** and **triggers**:
 #### Triggers:
   - Get persons - polling (```getPersonsPolling.js```)
   - Get organizations - polling (```getOrganizationsPolling.js```)
-  - Get articles - polling (```getArticlesPolling.js```)
-  - Get deleted persons - polling (```getDeletedPersonsPolling.js```)
-  - Get deleted organizations - polling (```getDeletedOrganizationsPolling.js```)
 
   All triggers are of type '*polling'* which means that the **trigger** will be scheduled to execute periodically. It will fetch only these objects from the database that have been modified or created since the previous execution. Then it will emit one message per object that changes or is added since the last polling interval. For this case at the very beginning we just create an empty `snapshot` object. Later on we attach ``lastUpdated`` to it. At the end the entire object should be emitted as the message body.
 
 #### Actions:
   - Upsert person (```upsertPerson.js```)
   - Upsert organization(```upsertOrganization.js```)
-  - Upsert article(```upsertArticle.js```)
-  - Delete person (```deletePerson.js```)
-  - Delete organization (```deleteOrganization.js```)
-  - Delete article (```deleteArticle.js```)
-  - Lookup person (```lookupPerson.js```)
-  - Lookup organization (```lookupOrganization.js```)
-  - Lookup article (```lookupArticle.js```)
 
   > **NOTE:** As mentioned before, to perform an action or call a trigger you have to be a registered [Wice CRM](https://wice.de/) user and you have to pass your **API Key** when you send a request.
 
@@ -49,30 +39,6 @@ Get persons trigger (```getPersonsPolling.js```) performs a request which fetche
 
 Get organizations trigger (```getOrganizationsPolling.js```) performs a request which fetches all new and updated organizations saved by a user in [Wice CRM](https://wice.de/).
 
-##### Get articles
-
-Get articles trigger (```getArticlesPolling.js```) performs a request which fetches all new and updated articles saved by a user in  [Wice CRM](https://wice.de/).
-
-##### Get deleted persons
-
-Get deleted persons trigger (```getDeletedPersonsPolling.js```) fetches all persons which have recently been deleted.
-
-##### Get deleted organizations
-
-Get deleted organizations trigger (```getDeletedOrganizationsPolling.js```) fetches all organizations which have recently been deleted.
-
-##### Lookup person
-
-Lookup person action (```lookupPerson.js```) performs a request which fetches the corresponding person by given an id.
-
-##### Lookup organization
-
-Lookup organization action (```lookupOrganization.js```) performs a request which fetches the corresponding organization by given an id.
-
-##### Lookup article
-
-Lookup article action (```lookupArticle.js```) performs a request which fetches the corresponding article by given an id.
-
 ##### Upsert person
 
 Upsert person action (``upsertPerson.js``) updates an existing person if it already exists. Otherwise creates a new one. At this point of time the function accepts as required parameters ``name`` and ``firstname``, but of course you can also pass other parameters like ``email``, ``phone``, ``salutation``, ``title``, etc.
@@ -81,23 +47,11 @@ Upsert person action (``upsertPerson.js``) updates an existing person if it alre
 
 Upsert organization action (``upsertOrganization.js``) updates an existing organization if it already exists. Otherwise creates a new one. This function accepts as required parameter only ``name``, but if you wish you can also pass ``town``, ``street``, ``street_number``, ``zip_code``, ``country``etc.
 
-##### Upsert article
+## Integrated Transformations
 
-Upsert article action (``upsertArticle.js``) updates an existing article if it already exists. Otherwise creates a new one. This function accepts as required parameter ``description``, but if you wish you can also pass ``number``, ``sales_price``, ``purchase_price``, ``in_stock``, ``unit``etc.
+As of version 2.0.0, transformations to and from the OIH contact master data model are integrated into the relevant actions/triggers by default. This means that it is no longer necessary to run a separate Wice CRM Transformer in flows containing this Adapter.
 
-##### Delete person
-
-Delete person action (``deletePerson.js``) deletes a person in [Wice CRM](https://wice.de/). The required parameter is ``rowid`` of the person which you want to delete.
-
->**NOTE**: We do ***NOT*** really delete the person from our database, we just set a value in field ``deactivated`` to ``1`` which actually  marks the person as ***deactivated*** .
-
-##### Delete organization
-
-Delete organization action (``deleteOrganization.js``) deletes an organization in [Wice CRM](https://wice.de/). The required parameter is ``rowid`` of the organization which you want to delete.
-
-##### Delete article
-
-Delete article action (``deleteArticle.js``) deletes an article in [Wice CRM](https://wice.de/). The required parameter is ``rowid`` of the article which you want to delete.
+If you would like to use the old behaviour without integrated transformations, simply set `skipTransformation: true` in the `fields` object of your flow configuration. Alternatively, you can also inject a valid, stringified JSONata expression in the `customMapping` key of the `fields` object, which will be used instead of the integrated transformation.
 
 ***
 
