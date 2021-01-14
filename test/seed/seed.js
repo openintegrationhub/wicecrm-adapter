@@ -16,7 +16,7 @@ const options = {
 };
 
 const organization = {
-  meta: {
+  metadata: {
     recordUid: '368125',
   },
   data: {
@@ -26,7 +26,7 @@ const organization = {
 };
 
 const person = {
-  meta: {
+  metadata: {
     recordUid: '433610',
   },
   data: {
