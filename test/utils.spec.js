@@ -2,11 +2,38 @@
 
 const { expect } = require('chai');
 const {
-  createSession, upsertObject, getPersons, getOrganizations,
+  createSession,
+  upsertObject,
+  getPersons,
+  getOrganizations,
 } = require('./../lib/utils/helpers');
-const { configOptions, person, organization } = require('./seed/seed');
+const {
+  configOptions,
+  person,
+  organization,
+  createSessionSuccess,
+  createSessionFailed,
+  upsertPersonCheck,
+  upsertOrganizationCheck,
+  upsertPersonSuccess,
+  upsertOrganizationSuccess,
+  getPersonsSuccess,
+  getOrganizationsSuccess,
+} = require('./seed/seed');
 
 describe('Test utils', async () => {
+  before(async () => {
+    createSessionSuccess;
+    createSessionFailed;
+    upsertPersonCheck;
+    upsertOrganizationCheck;
+    upsertPersonSuccess;
+    upsertOrganizationSuccess;
+    getPersonsSuccess;
+    getOrganizationsSuccess;
+  });
+
+
   it('should create a session', async () => {
     const session = await createSession(configOptions);
     expect(session).to.be.a('string').that.have.lengthOf(32);
@@ -31,6 +58,7 @@ describe('Test utils', async () => {
 
   it('should get all persons', async () => {
     const allPersons = await getPersons(configOptions, { lastUpdated: (new Date(0)).toISOString() });
+
     expect(allPersons).to.be.an.array;
     expect(allPersons[0]).to.have.property('rowid');
     expect(allPersons[0]).to.have.property('firstname');
@@ -38,6 +66,7 @@ describe('Test utils', async () => {
 
   it('should get all organizations', async () => {
     const allOrganizations = await getOrganizations(configOptions, { lastUpdated: (new Date(0)).toISOString() });
+
     expect(allOrganizations).to.be.an.array;
     expect(allOrganizations[0]).to.have.property('rowid');
   });
