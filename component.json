@@ -40,7 +40,8 @@
       "type": "polling",
       "main": "./lib/triggers/getPersonsPolling.js",
       "metadata": {
-        "out": "./lib/schemas/getPersons.out.json"
+        "out": "./lib/schemas/getPersons.out.json",
+        "in": "./lib/schemas/getPersons.in.json"
       }
     },
     "getOrganizationsPolling": {
@@ -49,7 +50,8 @@
       "type": "polling",
       "main": "./lib/triggers/getOrganizationsPolling.js",
       "metadata": {
-        "out": "./lib/schemas/getOrganizations.out.json"
+        "out": "./lib/schemas/getOrganizations.out.json",
+        "in": "./lib/schemas/getOrganizations.in.json"
       }
     },
     "getPersonsAndOrganizationsPolling": {
@@ -58,7 +60,8 @@
       "type": "polling",
       "main": "./lib/triggers/getPersonsAndOrganizationsPolling.js",
       "metadata": {
-        "out": "./lib/schemas/getPersons.out.json"
+        "out": "./lib/schemas/getPersons.out.json",
+        "in": "./lib/schemas/getPersons.in.json"
       }
     }
   },
