@@ -1,6 +1,6 @@
 {
   "name": "@oih/wicecrm-adapter",
-  "version": "2.1.14",
+  "version": "2.1.15",
   "description": "OIH Adapter for Wice CRM",
   "homepage": "https://wice.de/",
   "author": {
@@ -26,7 +26,7 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "@openintegrationhub/ferryman": "1.5.2-beta.1",
+    "@openintegrationhub/ferryman": "^1.5.3",
     "request": "^2.87.0",
     "request-promise": "4.1.1",
     "uuid": "^8.3.0"
