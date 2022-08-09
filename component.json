@@ -63,6 +63,16 @@
         "out": "./lib/schemas/getPersons.out.json",
         "in": "./lib/schemas/getPersons.in.json"
       }
+    },
+    "getTicketsPolling": {
+      "title": "Fetch new and updated tickets",
+      "description": "Get WiceCRM tickets which have recently been modified or created",
+      "type": "polling",
+      "main": "./lib/triggers/getTicketsPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getTickets.out.json",
+        "in": "./lib/schemas/getTickets.in.json"
+      }
     }
   },
   "actions": {
