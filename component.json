@@ -94,6 +94,15 @@
         "out": "./lib/schemas/upsertOrganization.out.json"
       }
     },
+    "upsertPersonOrOrganization": {
+      "title": "Upsert Person or Organization",
+      "description": "Update existing person or organization if it already exists. Otherwise create a new one.",
+      "main": "./lib/actions/upsertPersonOrOrganization.js",
+      "metadata": {
+        "in": "./lib/schemas/upsertPersonOrOrganization.in.json",
+        "out": "./lib/schemas/upsertPersonOrOrganization.out.json"
+      }
+    },
     "createTicket": {
       "title": "Create a new ticket",
       "description": "Creates a ticket attached to an existing organization.",
