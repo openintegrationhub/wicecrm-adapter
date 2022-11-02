@@ -112,6 +112,11 @@
       "title": "Add a new note to an existing ticket",
       "description": "Adds a note from the current user to an existing ticket specified by rowid",
       "main": "./lib/actions/addNoteToTicket.js"
-    }
+    },
+    "createArticle": {
+      "title": "Create a new ticket",
+      "description": "Creates a ticket attached to an existing organization.",
+      "main": "./lib/actions/createArticle.js"
+    },
   }
 }
