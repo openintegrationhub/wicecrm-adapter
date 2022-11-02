@@ -73,6 +73,16 @@
         "out": "./lib/schemas/getTickets.out.json",
         "in": "./lib/schemas/getTickets.in.json"
       }
+    },
+    "getChancesPolling": {
+      "title": "Fetch new and updated chances",
+      "description": "Get WiceCRM chances which have recently been modified or created",
+      "type": "polling",
+      "main": "./lib/triggers/getChancesPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getChances.out.json",
+        "in": "./lib/schemas/getChances.in.json"
+      }
     }
   },
   "actions": {
