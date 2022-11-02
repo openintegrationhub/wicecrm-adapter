@@ -127,6 +127,6 @@
       "title": "Create a new ticket",
       "description": "Creates a ticket attached to an existing organization.",
       "main": "./lib/actions/createArticle.js"
-    },
+    }
   }
 }
