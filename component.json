@@ -1,6 +1,6 @@
 {
   "title": "WiceCRM",
-  "description": "WiceCRM component for the elastic.io platform",
+  "description": "WiceCRM component for the oih platform",
   "docsUrl": "https://wice.de/",
   "credentials": {
     "fields": {
@@ -82,6 +82,16 @@
       "metadata": {
         "out": "./lib/schemas/getChances.out.json",
         "in": "./lib/schemas/getChances.in.json"
+      }
+    },
+    "getSalesPolling": {
+      "title": "Fetch new and updated sales",
+      "description": "Get WiceCRM sales which have recently been modified or created",
+      "type": "polling",
+      "main": "./lib/triggers/getSalesPolling.js",
+      "metadata": {
+        "out": "./lib/schemas/getSales.out.json",
+        "in": "./lib/schemas/getSales.in.json"
       }
     }
   },
