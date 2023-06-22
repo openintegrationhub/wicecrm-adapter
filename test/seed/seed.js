@@ -140,7 +140,7 @@ const upsertOrganizationCheckV2 = nock('https://oihwice.wice-net.de/plugin/wp_wi
     'content-length': 70,
   },
 })
-  .post('', '')
+  .get('', '')
   .reply(200, {});
 
 
