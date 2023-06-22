@@ -110,6 +110,54 @@ const upsertOrganizationSuccess = nock('https://oihwice.wice-net.de/plugin/wp_wi
   .post('', 'method=insert_company&data=%7B%22name%22%3A%22Test%20GmbH%22%2C%22email%22%3A%22info%40testgmbh.com%22%7D&cookie=01234567890123456789012345678912')
   .reply(200, { rowid: 1 });
 
+// ///
+const upsertPersonCheckV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json?cookie=01234567890123456789012345678912&method=get_person', {
+  reqheaders: {
+    'x-api-key': 'fsuogsi9p1im1gpnhvapjdtx94z46qye',
+    host: 'oihwice.wice-net.de',
+    'content-type': 'application/x-www-form-urlencoded',
+    'content-length': 69,
+  },
+})
+  .post('', 'pkey=433610')
+  .reply(200, {});
+
+
+const upsertPersonSuccessV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json?cookie=01234567890123456789012345678912&method=insert_contact', {
+  reqheaders: {
+    'x-api-key': 'fsuogsi9p1im1gpnhvapjdtx94z46qye',
+    host: 'oihwice.wice-net.de',
+    'content-type': 'application/x-www-form-urlencoded',
+    'content-length': 217,
+  },
+})
+  .post('', 'data=%7B%22name%22%3A%22Kolarovv%22%2C%22firstname%22%3A%22Sebastian%22%2C%22email%22%3A%22kolarov%40mail.com%22%2C%22same_contactperson%22%3A%22auto%22%7D')
+  .reply(200, { rowid: 1 });
+
+const upsertOrganizationCheckV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json?cookie=01234567890123456789012345678912&method=get_company', {
+  reqheaders: {
+    'x-api-key': 'fsuogsi9p1im1gpnhvapjdtx94z46qye',
+    host: 'oihwice.wice-net.de',
+    'content-type': 'application/x-www-form-urlencoded',
+    'content-length': 70,
+  },
+})
+  .post('', '')
+  .reply(200, {});
+
+
+const upsertOrganizationSuccessV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json?cookie=01234567890123456789012345678912&method=insert_company', {
+  reqheaders: {
+    'x-api-key': 'fsuogsi9p1im1gpnhvapjdtx94z46qye',
+    host: 'oihwice.wice-net.de',
+    'content-type': 'application/x-www-form-urlencoded',
+    'content-length': 145,
+  },
+})
+  .post('', 'data=%7B%22name%22%3A%22Test%20GmbH%22%2C%22email%22%3A%22info%40testgmbh.com%22%7D')
+  .reply(200, { rowid: 1 });
+
+// ///
 
 const today = (new Date()).toISOString();
 
@@ -154,6 +202,10 @@ module.exports = {
   upsertOrganizationCheck,
   upsertPersonSuccess,
   upsertOrganizationSuccess,
+  upsertPersonCheckV2,
+  upsertOrganizationCheckV2,
+  upsertPersonSuccessV2,
+  upsertOrganizationSuccessV2,
   getPersonsSuccess,
   getOrganizationsSuccess,
 };

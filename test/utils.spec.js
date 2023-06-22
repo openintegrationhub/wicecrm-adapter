@@ -19,6 +19,10 @@ const {
   upsertOrganizationSuccess,
   getPersonsSuccess,
   getOrganizationsSuccess,
+  upsertPersonCheckV2,
+  upsertOrganizationCheckV2,
+  upsertPersonSuccessV2,
+  upsertOrganizationSuccessV2,
 } = require('./seed/seed');
 
 describe('Test utils', async () => {
@@ -31,6 +35,10 @@ describe('Test utils', async () => {
     upsertOrganizationSuccess;
     getPersonsSuccess;
     getOrganizationsSuccess;
+    upsertPersonCheckV2;
+    upsertOrganizationCheckV2;
+    upsertPersonSuccessV2;
+    upsertOrganizationSuccessV2;
   });
 
 
@@ -52,6 +60,22 @@ describe('Test utils', async () => {
 
   it('should upsert an organization', async () => {
     const newOrganization = await upsertObject(organization, configOptions, 'organization');
+    expect(newOrganization).to.be.an('object');
+    expect(newOrganization).to.have.property('rowid');
+  });
+
+  it('should upsert a person via api version 2', async () => {
+    const currentConfigOptions = configOptions;
+    currentConfigOptions.apiVersion = '2';
+    const newPerson = await upsertObject(person, currentConfigOptions, 'person');
+    expect(newPerson).to.be.an('object');
+    expect(newPerson).to.have.property('rowid');
+  });
+
+  it('should upsert an organization via api version 2', async () => {
+    const currentConfigOptions = configOptions;
+    currentConfigOptions.apiVersion = '2';
+    const newOrganization = await upsertObject(organization, currentConfigOptions, 'organization');
     expect(newOrganization).to.be.an('object');
     expect(newOrganization).to.have.property('rowid');
   });
