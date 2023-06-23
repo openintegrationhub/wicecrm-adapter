@@ -111,48 +111,22 @@ const upsertOrganizationSuccess = nock('https://oihwice.wice-net.de/plugin/wp_wi
   .reply(200, { rowid: 1 });
 
 //
-const upsertPersonCheckV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json',
-  {
-    query: {
-      cookie: '01234567890123456789012345678912',
-      method: 'get_contact',
-      rowid: '433610',
-    },
-  })
-  .get('')
+const upsertPersonCheckV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json')
+  .get('?cookie=01234567890123456789012345678912&method=get_contact&rowid=433610')
   .reply(200, {});
 
 
-const upsertPersonSuccessV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json', {
-  query: {
-    cookie: '01234567890123456789012345678912',
-    method: 'insert_contact',
-  },
-})
-  .post('', person)
+const upsertPersonSuccessV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json')
+  .post('?cookie=01234567890123456789012345678912&method=insert_contact')
   .reply(200, { rowid: 1 });
 
-const upsertOrganizationCheckV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json?cookie=01234567890123456789012345678912&method=get_company', {
-  reqheaders: {
-    'x-api-key': 'fsuogsi9p1im1gpnhvapjdtx94z46qye',
-    host: 'oihwice.wice-net.de',
-    'content-type': 'application/x-www-form-urlencoded',
-    'content-length': 70,
-  },
-})
-  .get('', '')
+const upsertOrganizationCheckV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json')
+  .get('?cookie=01234567890123456789012345678912&method=get_company&rowid=368125')
   .reply(200, {});
 
 
-const upsertOrganizationSuccessV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json?cookie=01234567890123456789012345678912&method=insert_company', {
-  reqheaders: {
-    'x-api-key': 'fsuogsi9p1im1gpnhvapjdtx94z46qye',
-    host: 'oihwice.wice-net.de',
-    'content-type': 'application/x-www-form-urlencoded',
-    'content-length': 145,
-  },
-})
-  .post('', 'data=%7B%22name%22%3A%22Test%20GmbH%22%2C%22email%22%3A%22info%40testgmbh.com%22%7D')
+const upsertOrganizationSuccessV2 = nock('https://oihwice.wice-net.de/plugin/wp_wice_client_api_backend/json')
+  .post('?cookie=01234567890123456789012345678912&method=insert_company', organization.data)
   .reply(200, { rowid: 1 });
 
 // ///
